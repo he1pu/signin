@@ -6,7 +6,7 @@ ql repo https://github.com/he1pu/signin.git "_|si_" "activity|backUp" "tools"
 
 暂未适配iOS
 
-扫码获取cookie后填入环境变量BILIBILI_COOKIE中（和京东cookie设置方法相同）
+__扫码获取cookie后填入环境变量BILIBILI_COOKIE中（和京东cookie设置方法相同）__
 
 其它环境变量设置：<br>
 |变量|说明|默认值|
