@@ -213,7 +213,7 @@ async function run(coin_num, coin_type, silver2coin) {
     console.log(share_msg);
   }
   
-  if (silver2coin == true) {
+  if (silver2coin == 'true') {
     let silver2coin_ret = await silver2coin_fn();
     silver2coin_msg = silver2coin_ret.code == 0 ? '成功将银瓜子兑换为1个硬币' : `${silver2coin_ret["message"]}`;
   }
