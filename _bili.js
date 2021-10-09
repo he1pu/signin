@@ -411,6 +411,7 @@ async function scanGetCookie() {
     $.oauthKey = qrRet.data.oauthKey;
     qrcode.generate(qrUrl, {small: true});
     console.log(`请打开 哔哩哔哩APP 扫码登录(二维码有效期为3分钟)\n`);
+    console.log(`\n注：若上图二维码扫描不到，请使用工具(例如在线二维码工具：https://cli.im)手动生成下面链接的二维码：\n${qrUrl}\n`);
   }
 }
 
