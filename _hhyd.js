@@ -18,13 +18,13 @@ Quantumult X 用户直接重写抓数据
 （若无法获取，可使用BoxJs-->我的-->数据查看器（Key：HHYD_token）手动添加：un&token）
 
 [rewrite_local]
-http://u.wyexin.cn/api url script-request-body hhyd.js
+http://u.wyexin.cn/api url script-request-body https://raw.githubusercontent.com/he1pu/signin/main/_hhyd.js
 
 [mitm]
 hostname = u.wyexin.cn
 
 //定时15分钟一次，防止token失效！
-0/15 * * * * hhyd.js, tag=花花阅读, enabled=true
+0/15 * * * * https://raw.githubusercontent.com/he1pu/signin/main/_hhyd.js, tag=花花阅读, enabled=true
 
 */
 
@@ -221,7 +221,7 @@ async function getCks(ck, str) {
             resolve(ckArr)
         } else {
             console.log(`【${$.name}】：未填写变量 ${str}\n使用说明请脚本内查看`)
-            SendMsg(`【${$.name}】：未填写变量 ${str}\n使用说明请脚本内查看`)
+            SendMsg(`【${$.name}】：未填写变量 ${str}\n使用说明请脚本内查看\nhttps://raw.githubusercontent.com/he1pu/signin/main/_hhyd.js`)
         }
 
     })
