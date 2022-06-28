@@ -66,12 +66,8 @@ async function tips(ckArr) {
             await GetRewrite()
         } else {
             let ckArr = await getCks(ckStr, "HHYD_token");
-            
+
             await tips(ckArr);
-            if (ckArr.length==0) {
-                SendMsg('使用说明请脚本内查看')
-                return
-            }
 
             for (let index = 0; index < ckArr.length; index++) {
                 let num = index + 1;
@@ -224,7 +220,8 @@ async function getCks(ck, str) {
             }
             resolve(ckArr)
         } else {
-            console.log(`\n 【${$.name}】：未填写变量 ${str}`)
+            console.log(`【${$.name}】：未填写变量 ${str}\n使用说明请脚本内查看`)
+            SendMsg(`【${$.name}】：未填写变量 ${str}\n使用说明请脚本内查看`)
         }
 
     })
