@@ -88,14 +88,14 @@ async function tips(ckArr) {
     .catch((e) => $.logErr(e))
     .finally(() => $.done());
         
-async function posthds() {
+async function posthds(refer = "http://u.wyexin.cn/user/huahua.html?") {
     posthd = {
         "Host": "u.wyexin.cn",
         "Origin": "http://u.wyexin.cn",
         "X-Requested-With": "XMLHttpRequest",
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.13(0x18000d38) NetType/WIFI Language/zh_CN",
         "Content-Type": "application/json; charset=utf-8",
-        "Referer": "http://u.wyexin.cn/user/huahua.html?" + tss()
+        "Referer": refer + tss()
     }
 }
 async function all() {
@@ -130,12 +130,12 @@ async function all() {
     posthd = JSON.stringify(posthd).replace('huahua', 'h')
 
     if (hopeNo == (null)) {
-        for (let i = 0; i < 20; i++) {
-            posthds()
+        for (let i = 0; i < 10; i++) {
+            posthds("http://u.wyexin.cn/user/h.html?")
             S = `获取阅读链接`
             if (S == `获取阅读链接`) {
                 await task(
-                    `post`, `http://u.wyexin.cn/api/user/readd`, posthd, `{"code":"xpz111","un":"${ck[0]}","token":"${ck[1]}","pageSize":20}`);
+                    `post`, `http://u.wyexin.cn/api/user/startRead`, posthd, `{"code":"","un":"${ck[0]}","token":"${ck[1]}","pageSize":20,"url":"http://u.wyexin.cn/user/code.html"}`);
                 if (DATA.code == 0 && DATA.result.articleId != (null) && DATA.result.articleId != 0) {
 
                     console.log(`获取articleId ： ${DATA.result.articleId}\n`);
@@ -150,12 +150,12 @@ async function all() {
 
             S = `提交阅读`
             if (S == `提交阅读`) {
-                posthds()
+                posthds("http://u.wyexin.cn/user/h.html?")
                 await task(
-                    `post`, `http://u.wyexin.cn/api/user/submitt`, posthd, `{"code":"xpz222","un":"${ck[0]}","token":"${ck[1]}","pageSize":20}`);
+                    `post`, `http://u.wyexin.cn/api/user/finishRead`, posthd, `{"code":"","un":"${ck[0]}","token":"${ck[1]}","pageSize":20}`);
                 if (DATA.code == 0 && DATA.result != (null)) {
 
-                    console.log(`提交阅读 : 成功。当前还可阅读 ${DATA.result.progress} 篇文章\n`);
+                    console.log(`提交阅读 : 成功。获得 ${DATA.result.val} 花\n`);
 
                 } else {
                     console.log(`本轮阅读任务已完成，请稍后再来`);
